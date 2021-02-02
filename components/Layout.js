@@ -2,8 +2,6 @@ import React from 'react';
 import Head from 'next/head';
 import { Sidebar } from './Sidebar';
 
-import Image from 'next/image';
-
 export const Layout = ({ children }) => {
     return (
         <>
@@ -20,7 +18,7 @@ export const Layout = ({ children }) => {
 
                 <div className="sm:min-h-screen w-full">
                     <div className="sm:flex justify-center w-full p-5">
-                        <Image
+                        <img
                             src="/logo-original.svg"
                             alt="Picture of the author"
                             width={700}

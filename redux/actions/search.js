@@ -6,7 +6,7 @@ export const eventSearch = (text) => {
     return async (dispatch) => {
         try {
             dispatch(search(text));
-            axios.get(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${text.busqueda}&location=${text.ubicacion}`, {
+            axios.get(`https://api.yelp.com/v3/businesses/search?term=${text.busqueda}&location=${text.ubicacion}`, {
               headers: {
                 Authorization: `Bearer eP-wUV_UqCRe7wlUlnLVEshEY6N0w_LjAmuyNXfFTdLuzq7_dzzt0c5CzFzZAruzCW-dYxD4715L13UJyHR7YK0BvtFmfW0sKv9A_YXW9AXddwtXkcxkOO5IkkMWYHYx`,
                 "accept": "application/json",

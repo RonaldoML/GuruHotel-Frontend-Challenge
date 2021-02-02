@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/Link';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 export const Sidebar = () => {
