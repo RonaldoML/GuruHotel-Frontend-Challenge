@@ -1,65 +1,99 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+import { useDispatch, useSelector } from 'react-redux';
+import { Layout } from '../components/Layout';
+import { eventSearch, noContent } from '../redux/actions/search';
+import { loading } from '../redux/actions/search';
+import { ItemsGrid } from '../components/Items/ItemsGrid';
+import { NoContent } from '../components/NoContent';
 
-export default function Home() {
+
+const Index = () => {
+
+  const dispatch = useDispatch();
+
+  const { data, load, content } = useSelector(state => state.search)
+  const { busqueda, ubicacion } = useSelector(state => state.search.searchs);
+
+  const formik = useFormik({
+    initialValues: {
+      busqueda: busqueda,
+      ubicacion: ubicacion,
+    },
+    validationSchema: Yup.object({
+      busqueda: Yup.string()
+        .min(1, 'Debe ingresar una entrada para buscar')
+        .required('Debe ingresar una entrada para buscar'),
+      ubicacion: Yup.string()
+        .min(1, 'Debe ingresar una ubicación para buscar')
+        .required('Debe ingresar una ubicación para buscar')
+    }),
+    onSubmit: async (s, { resetForm }) => {
+      dispatch(eventSearch({ busqueda: s.busqueda, ubicacion: s.ubicacion }));
+      dispatch(loading(true));
+    },
+  });
+
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <div>
+      <Layout>
+        <h1 className="text-2xl text-gray-700 text-center font-bold">GuruHotel - Frontend Challenge</h1>
+        <div className="flex justify-center mt-10">
+          <div className="flex justify-center w-full max-w-3xl">
+            <form onSubmit={formik.handleSubmit}>
+              <div className="sm:flex p-3">
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+                <input
+                  id="busqueda"
+                  type="text"
+                  placeholder="hot dog"
+                  name='busqueda'
+                  value={formik.values.busqueda}
+                  onBlur={formik.handleBlur}
+                  onChange={formik.handleChange}
+                  className="w-full shadow appearance-none border rounded-l rounded-r-none py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                />
+                <input
+                  id="ubicacion"
+                  type="text"
+                  placeholder="Guayaquil"
+                  name='ubicacion'
+                  value={formik.values.ubicacion}
+                  onBlur={formik.handleBlur}
+                  onChange={formik.handleChange}
+                  className="w-full shadow appearance-none border rounded-none py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                />
+                <div className="md:w-3/12 sm:w-full">
+                  <input
+                    type="submit"
+                    value="buscar"
+                    className="w-full bg-gray-800 rounded-l-none hover:bg-gray-900 p-2 py-2 px-3 text-white uppercase font-bold rounded"
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
-      </main>
+        <div className="grid justify-items-stretch p-5">
+          {
+            data.length !== 0 &&
+            <ItemsGrid />
+          }
+          {
+            load &&
+            <div className="flex justify-self-center justify-center">
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
+              <img src="/loading.gif" alt="loading" width="10%" />
+            </div>
+          }
+          {
+            content && 
+            <NoContent/>
+          }
+        </div>
+      </Layout>
     </div>
   )
 }
+
+export default Index;
