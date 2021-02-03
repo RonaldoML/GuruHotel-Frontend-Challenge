@@ -25,8 +25,8 @@ export const Item = ({ empresa, count }) => {
     }
 
     return (
-        <div className="w-full mb-4 hover:shadow-md" onClick={handleClick}>
-            <div className="p-5 border bg-white">
+        <div className="w-full mb-4 hover:shadow-md bg-indigo-50" onClick={handleClick}>
+            <div className="p-5 bg-white rounded-lg">
                 <div className="lg:flex">
                     <div className="lg:w-5/12 xl:w-7/12 h-6/12 mb-2">
                         {/* <div className="border rounded mb-5"> */}
@@ -58,7 +58,7 @@ export const Item = ({ empresa, count }) => {
                         </p>
 
                         <div className="cursor-pointer mb-2 block" onClick={() => Router.push('/nosotros')}>
-                            <span className={visited.some(v => v === id) ? "text-pink-900 hover:text-indigo-900 text-xs underline" : "text-blue-400 hover:text-indigo-900 text-xs underline"}>
+                            <span className={visited.some(v => v === id) ? "text-pink-900 hover:text-indigo-900 text-sm underline" : "text-blue-400 hover:text-indigo-900 text-xs underline"}>
                                 Ver más...
                                     </span>
                         </div>

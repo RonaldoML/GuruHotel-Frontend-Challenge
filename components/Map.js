@@ -7,7 +7,10 @@ export const MapContainer = () => {
 
     const mapStyles = {
         height: "100vh",
-        width: "auto"
+        width: "auto",
+        border: "1px solid gray",
+        borderRadius: "10px",
+        boxShadow: "0px 0px 3px gray"
     };
 
     let locations = [];
@@ -27,7 +30,7 @@ export const MapContainer = () => {
     }
 
     return (
-        <div className="p-10 md:w-5/12 sm:h-0 h-full">
+        <div className="p-10 md:w-5/12 sm:h-0 rounded-md h-full">
 
             <LoadScript
                 googleMapsApiKey='AIzaSyCVx558Ww9CU0esMgM_3I_mS4p2zmx3SL8'>

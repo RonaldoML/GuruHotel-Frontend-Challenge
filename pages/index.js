@@ -51,7 +51,7 @@ const Index = () => {
     <div>
       <Layout>
         {/* <h1 className="text-2xl text-gray-700 text-center font-bold">GuruHotel - Frontend Challenge</h1> */}
-        <div className="flex justify-center bg-blue-50 shadow-md">
+        <div className="flex justify-center bg-white shadow-sm">
           <div className="flex justify-center w-full max-w-3xl mb-10">
             <form onSubmit={formik.handleSubmit}>
               <div className="sm:flex p-3 ">

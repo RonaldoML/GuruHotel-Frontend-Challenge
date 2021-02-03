@@ -18,7 +18,7 @@ export const Layout = ({ children }) => {
             <div className="md:flex sm:flex min-h-screen">
 
                 <div className="sm:min-h-screen w-full">
-                    <div className="sm:flex justify-center w-full p-5 bg-blue-50">
+                    <div className="sm:flex justify-center w-full p-5 bg-white">
                         <img
                             src="/logo-original.svg"
                             alt="Picture of the author"
@@ -26,7 +26,7 @@ export const Layout = ({ children }) => {
                             height={200}
                         />
                     </div>
-                    <div className="bg-gray-100 min-h-screen">
+                    <div className="bg-blue-50 min-h-screen">
                     
                         {children}
 
