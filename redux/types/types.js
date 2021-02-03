@@ -8,4 +8,8 @@ export const types = {
 
     noContent: '[content] noContent',
 
+    visited: '[visit] visited',
+
+    selected: '[select] selected'
+
 }

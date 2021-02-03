@@ -1,53 +1,68 @@
-import Link from 'next/Link';
 import React from 'react'
-import { useSelector } from 'react-redux';
+import Router from 'next/router'
+import { useDispatch, useSelector } from 'react-redux';
+import { select, visit } from '../../redux/actions/search';
 
-export const Item = ({ empresa }) => {
+
+export const Item = ({ empresa, count }) => {
     const { id, name, rating, phone, review_count, location } = empresa;
 
     let { image_url } = empresa;
 
     image_url = image_url ? image_url : '/yelp.png';
 
-    const {visited} = useSelector(state => state.search)
+    const { visited } = useSelector(state => state.search)
+
+    const dispatch = useDispatch();
 
     const handleClick = () => {
-        visited.push[id];
+        if (!visited.some(v => v === id)) {
 
+            dispatch(visit(id));
+        }
+        dispatch(select(id));
+        Router.push('/nosotros')
     }
 
     return (
-        <div className="w-full px-3 mb-4" onClick={handleClick}>
-            <div>
-                <div className="p-5 shadow-md bg-white">
-                    <div className="lg:flex">
-                        <div className="lg:w-5/12 xl:w-3/12">
-                            <div className="border rounded">
-                                <img src={image_url} alt={name} /> 
-                            </div>
+        <div className="w-full mb-4 hover:shadow-md" onClick={handleClick}>
+            <div className="p-5 border bg-white">
+                <div className="lg:flex">
+                    <div className="lg:w-5/12 xl:w-7/12 h-6/12 mb-2">
+                        {/* <div className="border rounded mb-5"> */}
+                        <img src={image_url} alt={name} name={name} className="object-cover h-48 w-full" />
+                        {/* </div> */}
 
 
+                    </div>
+                    <div className="lg:w-7/12 xl:w-7/12 h-6/12 pl-5">
+                        <div className="flex">
+
+                            <p className="font-bold text-3xl text-yellow-500 mb-2">{count}. {name}</p>
+                            {
+                                visited.some(v => v === id) &&
+                                <img src="/viewed.png" alt="visto" title="visto" className="h-5 mt-2 mx-5" />
+                            }
                         </div>
-                        <div className="lg:w-7/12 xl:w-9/12 pl-5">
-                            <p className="font-bold text-2xl text-yellow-600 mb-4">{name}</p>
-                            <p className="text-gray-600 mb-4">Ubicación:
+                        <p className="text-gray-600 mb-1">Ubicación:
                                 <span className="text-gray-700 font-bold"> {location.address1}</span>
-                            </p>
-                            <p className="text-gray-600 mb-4">Rating:
+                        </p>
+                        <p className="text-gray-600 mb-1">Rating:
                                 <span className="text-gray-700 font-bold"> {rating}</span>
-                            </p>
-                            <p className="text-gray-600 mb-4">Teléfono:
+                        </p>
+                        <p className="text-gray-600 mb-1">Teléfono:
                                 <span className="text-gray-700 font-bold"> {phone}</span>
-                            </p>
-                            <p className="text-gray-600 mb-4">Número de reseñas:
+                        </p>
+                        <p className="text-gray-600 mb-1">Número de reseñas:
                                 <span className="text-gray-700 font-bold"> {review_count}</span>
-                            </p>
-                            <Link href="/nosotros">
-                                <a className=" mb-2 block">
-                                    Historial
-                                </a>
-                            </Link>
+                        </p>
+
+                        <div className="cursor-pointer mb-2 block" onClick={() => Router.push('/nosotros')}>
+                            <span className={visited.some(v => v === id) ? "text-pink-900 hover:text-indigo-900 text-xs underline" : "text-blue-400 hover:text-indigo-900 text-xs underline"}>
+                                Ver más...
+                                    </span>
                         </div>
+
                     </div>
                 </div>
             </div>

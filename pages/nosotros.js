@@ -7,11 +7,11 @@ import Router from 'next/router'
 
 const options = {
   method: 'POST',
-  url: 'https://api.yelp.com/v3/graphql',
+  url: 'https://cors-proxy.htmldriven.com/fetch/https://api.yelp.com/v3/graphql',
   headers: {
     // 'content-type': 'application/json',
     'Authorization': 'Bearer eP-wUV_UqCRe7wlUlnLVEshEY6N0w_LjAmuyNXfFTdLuzq7_dzzt0c5CzFzZAruzCW-dYxD4715L13UJyHR7YK0BvtFmfW0sKv9A_YXW9AXddwtXkcxkOO5IkkMWYHYx',
-    // 'Access-Control-Allow-Origin': '*'
+    'Access-Control-Allow-Origin': '*',
     'Accept-Language': 'en-US',
     'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS', 
   },

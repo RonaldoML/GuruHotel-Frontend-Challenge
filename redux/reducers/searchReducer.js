@@ -1,3 +1,4 @@
+import { visited } from "../actions/search";
 import { types } from "../types/types";
 
 
@@ -8,8 +9,9 @@ const initialState = {
     },
     data: [],
     visited:[],
+    selected: '',
     load: false,
-    content: false
+    content: false,
 };
 
 export const searchReducer = ( state = initialState, action ) => {
@@ -32,7 +34,19 @@ export const searchReducer = ( state = initialState, action ) => {
         case types.noContent:
             return {
                 ...state,
+                data: [],
                 content: action.payload
+            }
+        case types.selected:
+            return {
+                ...state,
+                selected: action.payload
+            }
+        case types.visited:
+            localStorage.setItem('visited', JSON.stringify([...state.visited, action.payload]));
+            return {
+                ...state,
+                visited: [...state.visited, action.payload]
             }
         default:
             return state;
