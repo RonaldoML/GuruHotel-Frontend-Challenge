@@ -5,7 +5,7 @@ import { Item } from './Item'
 export const ItemsGrid = () => {
     const {searchs, data} = useSelector(state => state.search);
     return (
-        <div className="justify-self-center md:w-7/12 p-10">
+        <div className="justify-self-center md:w-7/12 p-10 animate__animated animate__fadeInLeft animate__faster">
             <h1 className='text-xl mb-4'>Los mejores lugares para "<span className=" font-bold">{searchs.busqueda}...</span>"</h1>
             <div className="block">
             {

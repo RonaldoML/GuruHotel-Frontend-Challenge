@@ -25,8 +25,8 @@ export const Item = ({ empresa, count }) => {
     }
 
     return (
-        <div className="w-full mb-4 hover:shadow-md bg-indigo-50" onClick={handleClick}>
-            <div className="p-5 bg-white rounded-lg">
+        <div className="w-full rounded-lg mb-4 hover:shadow-md bg-blue-50" onClick={handleClick}>
+            <div className="p-5 ">
                 <div className="lg:flex">
                     <div className="lg:w-5/12 xl:w-7/12 h-6/12 mb-2">
                         {/* <div className="border rounded mb-5"> */}

@@ -48,43 +48,53 @@ const Index = () => {
   });
 
   return (
-    <div>
+    <div className="">
       <Layout>
-        {/* <h1 className="text-2xl text-gray-700 text-center font-bold">GuruHotel - Frontend Challenge</h1> */}
-        <div className="flex justify-center bg-white shadow-sm">
-          <div className="flex justify-center w-full max-w-3xl mb-10">
-            <form onSubmit={formik.handleSubmit}>
-              <div className="sm:flex p-3 ">
+        <div className="grid justify-items-center shadow-sm w-full bg-gradient-to-r from-blue-400 to-green-500">
 
-                <input
-                  id="busqueda"
-                  type="text"
-                  placeholder="hot dog"
-                  name='busqueda'
-                  value={formik.values.busqueda}
-                  onBlur={formik.handleBlur}
-                  onChange={formik.handleChange}
-                  className="w-full shadow appearance-none rounded-l md:rounded-r-none py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                />
-                <input
-                  id="ubicacion"
-                  type="text"
-                  placeholder="Guayaquil"
-                  name='ubicacion'
-                  value={formik.values.ubicacion}
-                  onBlur={formik.handleBlur}
-                  onChange={formik.handleChange}
-                  className="w-full shadow appearance-none border-none rounded-none py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                />
-                <div className="md:w-3/12 sm:w-full">
+          <div className="p-5 animate__animated animate__bounce animate__faster">
+            <img
+              src="/logo-original.svg"
+              alt="Picture of the author"
+              width={700}
+              height={50}
+            />
+          </div>
+          <div className="flex justify-center p-5">
+            <div className="flex justify-center w-full max-w-3xl">
+              <form onSubmit={formik.handleSubmit}>
+                <div className="sm:flex p-3 ">
+
                   <input
-                    type="submit"
-                    value="buscar"
-                    className="w-full shadow bg-blue-500 rounded md:rounded-l-none md:rounded hover:bg-indigo-900 p-2 py-2 px-3 text-white uppercase font-bold"
+                    id="busqueda"
+                    type="text"
+                    placeholder="hot dog"
+                    name='busqueda'
+                    value={formik.values.busqueda}
+                    onBlur={formik.handleBlur}
+                    onChange={formik.handleChange}
+                    className="w-full shadow appearance-none rounded mb-1 sm:rounded-l sm:rounded-r-none py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   />
+                  <input
+                    id="ubicacion"
+                    type="text"
+                    placeholder="Guayaquil"
+                    name='ubicacion'
+                    value={formik.values.ubicacion}
+                    onBlur={formik.handleBlur}
+                    onChange={formik.handleChange}
+                    className="w-full shadow appearance-none border-none rounded mb-1 sm:rounded-none py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  />
+                  <div className="md:w-3/12 sm:w-full">
+                    <input
+                      type="submit"
+                      value="buscar"
+                      className="w-full shadow bg-blue-900 rounded mb-1 sm:rounded-l-none hover:bg-indigo-900 p-2 py-2 px-3 text-white uppercase font-bold"
+                    />
+                  </div>
                 </div>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
         </div>
         <div className="grid justify-items-stretch">
@@ -92,23 +102,22 @@ const Index = () => {
             data.length !== 0 ? (
               <div className="flex">
                 <ItemsGrid />
-                <MapContainer/>
+                {/* shawarma */}
               </div>
-              
-              ): null
+
+            ) : null
 
 
           }
           {
             load &&
             <div className="flex justify-self-center justify-center mt-10">
-
               <img src="/loading.gif" alt="loading" width="10%" />
             </div>
           }
           {
             content &&
-            <NoContent />
+            <NoContent type={1} />
           }
         </div>
       </Layout>

@@ -6,7 +6,7 @@ export const MapContainer = () => {
     const { data } = useSelector(state => state.search)
 
     const mapStyles = {
-        height: "100vh",
+        height: "60vh",
         width: "auto",
         border: "1px solid gray",
         borderRadius: "10px",
@@ -30,7 +30,7 @@ export const MapContainer = () => {
     }
 
     return (
-        <div className="p-10 md:w-5/12 sm:h-0 rounded-md h-full">
+        <div className="p-10 md:w-5/12 sm:h-0 rounded-md h-full mb-10 animate__animated animate__fadeInRight animate__faster">
 
             <LoadScript
                 googleMapsApiKey='AIzaSyCVx558Ww9CU0esMgM_3I_mS4p2zmx3SL8'>
