@@ -1,6 +1,6 @@
 export const texts = {
-    noContent: 'Oop! no encontramos lugares para',
-    searchSomething: 'Ingresa un término y una ciudad para buscar'
+    noContent: 'Oops!\n no encontramos lugares para',
+    searchSomething: 'Por favor!\n Ingresa un término y una ciudad para buscar'
 }
 
 export const images = {
@@ -9,5 +9,7 @@ export const images = {
     viewed: '/viewed.png',
     noImage: '/yelp.png',
     logo: '/logo-original.svg',
-    noContent: '/man-questioning.svg'
+    noContent: '/man-questioning.svg',
+    loadingGif: '/loading.gif',
+    flecha: '/flecha.svg'
 }

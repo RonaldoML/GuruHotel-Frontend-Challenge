@@ -70,3 +70,8 @@ export const select = (value) => ({
   type: types.selected,
   payload: value
 })
+
+export const ask = (value) => ({
+  type: types.askTerms,
+  payload: value
+})

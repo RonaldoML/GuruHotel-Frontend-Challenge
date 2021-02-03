@@ -14,29 +14,14 @@ export const Layout = ({ children }) => {
                     rel="stylesheet"
                     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
                 />
-
             </Head>
 
-
             <div className="md:flex sm:flex min-h-screen">
-
                 <div className="sm:min-h-screen w-full">
-                    {/* <div className="sm:flex justify-center w-full p-5 bg-white">
-                        <img
-                            src="/logo-original.svg"
-                            alt="Picture of the author"
-                            width={700}
-                            height={200}
-                        />
-                    </div> */}
                     <div className="min-h-screen">
-
                         {children}
-
                     </div>
-
                 </div>
-
             </div>
             <About />
         </>

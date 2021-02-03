@@ -4,12 +4,14 @@ export const types = {
 
     eventData: '[event] data',
 
-    loading: '[img] loading',
+    loading: '[event] loading',
 
     noContent: '[content] noContent',
 
+    askTerms: '[content] ask',
+
     visited: '[visit] visited',
 
-    selected: '[select] selected'
+    selected: '[visit] selected'
 
 }

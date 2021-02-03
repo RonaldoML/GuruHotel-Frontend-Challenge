@@ -96,6 +96,7 @@ const Nosotros = () => {
   return (
     <div>
       <Layout>
+        <Detail />
       <div onClick={() => Router.back()}>Go Back</div>
       </Layout>
     </div>

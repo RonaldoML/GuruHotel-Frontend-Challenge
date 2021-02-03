@@ -12,6 +12,7 @@ const initialState = {
     selected: '',
     load: false,
     content: false,
+    askTerms: true,
 };
 
 export const searchReducer = ( state = initialState, action ) => {
@@ -47,6 +48,11 @@ export const searchReducer = ( state = initialState, action ) => {
             return {
                 ...state,
                 visited: [...state.visited, action.payload]
+            }
+        case types.askTerms:
+            return {
+                ...state,
+                askTerms: action.payload
             }
         default:
             return state;
