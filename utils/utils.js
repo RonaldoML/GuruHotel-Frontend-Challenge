@@ -78,7 +78,7 @@ export const preRequest = {
         headers: {
           Authorization: token,
           'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Origin': 'https://yelp-search-challenge.herokuapp.com',
           'Accept-Language': 'en-US',
         }
 }
