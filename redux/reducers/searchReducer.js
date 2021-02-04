@@ -8,6 +8,7 @@ const initialState = {
         ubicacion: '',
     },
     data: [],
+    business: {},
     visited:[],
     selected: '',
     load: false,
@@ -25,7 +26,12 @@ export const searchReducer = ( state = initialState, action ) => {
         case types.eventData:
             return {
                 ...state,
-                data: action.payload
+                data: [...state.data,...action.payload]
+            }
+        case types.eventSearchBusiness:
+            return {
+                ...state,
+                business: action.payload
             }
         case types.loading:
             return {

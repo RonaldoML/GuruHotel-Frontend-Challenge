@@ -57,3 +57,17 @@ export const ratingImage = (rating) => {
             return ratingImages.cero;;
     }
 }
+
+
+const token = 'Bearer eP-wUV_UqCRe7wlUlnLVEshEY6N0w_LjAmuyNXfFTdLuzq7_dzzt0c5CzFzZAruzCW-dYxD4715L13UJyHR7YK0BvtFmfW0sKv9A_YXW9AXddwtXkcxkOO5IkkMWYHYx';
+
+export const preRequest = {
+    url: 'https://thingproxy.freeboard.io/fetch/https://api.yelp.com/v3/graphql',
+        method: 'post',
+        headers: {
+          Authorization: token,
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Accept-Language': 'en-US',
+        }
+}

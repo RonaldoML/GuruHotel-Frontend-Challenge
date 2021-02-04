@@ -2,6 +2,8 @@ export const types = {
 
     eventSearch: '[event] search',
 
+    eventSearchBusiness: '[event] business',
+
     eventData: '[event] data',
 
     loading: '[event] loading',

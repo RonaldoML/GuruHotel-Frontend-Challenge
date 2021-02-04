@@ -1,16 +1,16 @@
 import React from 'react'
 import Router from 'next/router'
 import { useDispatch, useSelector } from 'react-redux';
-import { select, visit } from '../../redux/actions/search';
+import { fetchBusiness, select, visit } from '../../redux/actions/search';
 import { convertKm, images, ratingImage } from '../../utils/utils';
 
 
 export const Item = ({ empresa }) => {
-    const { id, name, rating, phone, review_count, location, distance } = empresa;
+    const { id, name , rating, display_phone, review_count, location, distance } = empresa;
 
-    let { image_url } = empresa;
+    let { photos } = empresa;
 
-    image_url = image_url ? image_url : '/yelp.png';
+    const image_url = photos.length > 0 ? (photos[0] === 'https://s3-media3.fl.yelpcdn.com/bphoto/None/o.jpg' ? images.noImage : photos[0]) : images.noImage;
 
     const { visited } = useSelector(state => state.search)
 
@@ -22,7 +22,8 @@ export const Item = ({ empresa }) => {
             dispatch(visit(id));
         }
         dispatch(select(id));
-        //Router.push('/nosotros')
+        dispatch(fetchBusiness(id))
+        Router.push('/nosotros')
 
     }
 
@@ -50,15 +51,15 @@ export const Item = ({ empresa }) => {
                             <img src={ratingImage(rating)} alt={rating} title={rating} className="h-5 m-1" />
                             <span className="text-gray-700 font-bold" title="reseñas"> {review_count}</span>
                         </p>
-                        <p className="flex text-gray-600 mb-1 cursor-pointer" onClick={handleMaps}>
-                            <img src={images.mapsIcon} alt="visto" title="maps" className="h-5 m-1" />
-                            <span className="text-gray-700 font-bold mt-1" title="reseñas">{convertKm(distance)} Km</span>
+                        <p className="flex text-gray-600 mb-1 cursor-pointer" title="maps" onClick={handleMaps}>
+                            <img src={images.mapsIcon} alt="visto" className="h-5 m-1" />
+                            <span className="text-gray-700 font-bold mt-1">{convertKm(distance)} Km</span>
                         </p>
                         <p className="text-gray-600 mb-1">
                             <span className="text-gray-700 font-bold"> {location.address1}</span>
                         </p>
                         <p className="text-gray-600 mb-1">
-                            <span className="text-gray-700 font-bold"> {phone}</span>
+                            <span className="text-gray-700 font-bold"> {display_phone}</span>
                         </p>
                         <div className="cursor-pointer mb-2 block" onClick={() => Router.push('/nosotros')}>
                             <span

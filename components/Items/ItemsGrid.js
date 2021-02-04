@@ -1,7 +1,6 @@
-import React from 'react'
+import React from 'react';
 import { useSelector } from 'react-redux'
-import { MapContainer } from '../Map';
-import { Item } from './Item'
+import { Item } from './Item';
 
 export const ItemsGrid = () => {
     const {searchs, data} = useSelector(state => state.search);
