@@ -73,12 +73,11 @@ export const preRequestDev = {
 }
 
 export const preRequest = {
-    url: 'https://thingproxy.freeboard.io/fetch/https://api.yelp.com/v3/graphql',
+    url: 'https://api.yelp.com/v3/graphql',
         method: 'post',
         headers: {
           Authorization: token,
           'Content-Type': 'application/json',
           'Access-Control-Allow-Origin': 'https://yelp-search-challenge.herokuapp.com',
-          'Accept-Language': 'en-US',
         }
 }
