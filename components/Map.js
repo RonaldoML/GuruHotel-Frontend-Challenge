@@ -30,7 +30,8 @@ export const MapContainer = () => {
     }
 
     return (
-        <div className="p-10 md:w-5/12 sm:h-0 rounded-md h-full mb-10 animate__animated animate__fadeInRight animate__faster">
+        <div className="w-full rounded-md animate__animated animate__fadeInRight animate__faster">
+            <h1 className='text-xl font-bold text-center mb-10'>Mira su ubicación en el mapa</h1>
 
             <LoadScript
                 googleMapsApiKey='AIzaSyCVx558Ww9CU0esMgM_3I_mS4p2zmx3SL8'>
@@ -40,10 +41,11 @@ export const MapContainer = () => {
                     center={defaultCenter}>
 
                     {
-                        locations.map(item => {
+                        locations.map((item, index) => {
                             return (
                                 //  <Marker key={item.name} position={item.location} title={item.name}/>
                                 <InfoWindow
+                                    key={index}
                                     position={item.location}
                                     clickable={true}
                                 >

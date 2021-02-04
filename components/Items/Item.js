@@ -2,10 +2,11 @@ import React from 'react'
 import Router from 'next/router'
 import { useDispatch, useSelector } from 'react-redux';
 import { select, visit } from '../../redux/actions/search';
+import { convertKm, images, ratingImage } from '../../utils/utils';
 
 
-export const Item = ({ empresa, count }) => {
-    const { id, name, rating, phone, review_count, location } = empresa;
+export const Item = ({ empresa }) => {
+    const { id, name, rating, phone, review_count, location, distance } = empresa;
 
     let { image_url } = empresa;
 
@@ -21,46 +22,50 @@ export const Item = ({ empresa, count }) => {
             dispatch(visit(id));
         }
         dispatch(select(id));
-        Router.push('/nosotros')
+        //Router.push('/nosotros')
+
+    }
+
+    const handleMaps = (e) => {
+        e.stopPropagation();
+        window.scrollTo(0, document.body.scrollHeight);
     }
 
     return (
-        <div className="w-full rounded-lg mb-4 hover:shadow-md bg-blue-50" onClick={handleClick}>
-            <div className="p-5 ">
+        <div className="mb-5 md:mb-0 rounded-lg hover:shadow-xl bg-blue-50" onClick={handleClick}>
+            <div className="p-10">
                 <div className="lg:flex">
-                    <div className="lg:w-5/12 xl:w-7/12 h-6/12 mb-2">
-                        {/* <div className="border rounded mb-5"> */}
-                        <img src={image_url} alt={name} name={name} className="object-cover h-48 w-full" />
-                        {/* </div> */}
-
-
+                    <div className="lg:w-5/12 xl:w-7/12 h-6/12">
+                        <img src={image_url} alt={name} name={name} className="object-cover rounded h-60 w-full" />
                     </div>
                     <div className="lg:w-7/12 xl:w-7/12 h-6/12 pl-5">
                         <div className="flex">
-
-                            <p className="font-bold text-3xl text-yellow-500 mb-2">{count}. {name}</p>
+                            <p className="font-bold text-4xl text-yellow-500 mb-3">{name}</p>
                             {
                                 visited.some(v => v === id) &&
-                                <img src="/viewed.png" alt="visto" title="visto" className="h-5 mt-2 mx-5" />
+                                <img src={images.viewed} alt="visto" title="visto" className="h-5 mt-3 mx-5" />
                             }
                         </div>
-                        <p className="text-gray-600 mb-1">Ubicación:
-                                <span className="text-gray-700 font-bold"> {location.address1}</span>
+                        <p className="flex text-gray-600 mb-1">
+                            <img src={ratingImage(rating)} alt={rating} title={rating} className="h-5 m-1" />
+                            <span className="text-gray-700 font-bold" title="reseñas"> {review_count}</span>
                         </p>
-                        <p className="text-gray-600 mb-1">Rating:
-                                <span className="text-gray-700 font-bold"> {rating}</span>
+                        <p className="flex text-gray-600 mb-1 cursor-pointer" onClick={handleMaps}>
+                            <img src={images.mapsIcon} alt="visto" title="maps" className="h-5 m-1" />
+                            <span className="text-gray-700 font-bold mt-1" title="reseñas">{convertKm(distance)} Km</span>
                         </p>
-                        <p className="text-gray-600 mb-1">Teléfono:
-                                <span className="text-gray-700 font-bold"> {phone}</span>
+                        <p className="text-gray-600 mb-1">
+                            <span className="text-gray-700 font-bold"> {location.address1}</span>
                         </p>
-                        <p className="text-gray-600 mb-1">Número de reseñas:
-                                <span className="text-gray-700 font-bold"> {review_count}</span>
+                        <p className="text-gray-600 mb-1">
+                            <span className="text-gray-700 font-bold"> {phone}</span>
                         </p>
-
                         <div className="cursor-pointer mb-2 block" onClick={() => Router.push('/nosotros')}>
-                            <span className={visited.some(v => v === id) ? "text-pink-900 hover:text-indigo-900 text-sm underline" : "text-blue-400 hover:text-indigo-900 text-xs underline"}>
+                            <span
+                                className={visited.some(v => v === id) ? "text-pink-900 hover:text-indigo-900 text-sm underline" : "text-blue-400 hover:text-indigo-900 text-xs underline"}
+                            >
                                 Ver más...
-                                    </span>
+                            </span>
                         </div>
 
                     </div>

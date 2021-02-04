@@ -11,5 +11,49 @@ export const images = {
     logo: '/logo-original.svg',
     noContent: '/man-questioning.svg',
     loadingGif: '/loading.gif',
-    flecha: '/flecha.svg'
+    loadingSVG: '/loading.svg',
+    flecha: '/flecha.svg',
+    mapsIcon: '/mapIcon.svg',
+    ratingImages: {
+        cero: '/web_and_ios/small/2.png',
+        one: '/web_and_ios/small/1.png',
+        oneHalf: '/web_and_ios/small/1-5.png',
+        two: '/web_and_ios/small/2.png',
+        twoHalf: '/web_and_ios/small/2-5.png',
+        three: '/web_and_ios/small/3.png',
+        threeHalf: '/web_and_ios/small/3-5.png',
+        four: '/web_and_ios/small/4.png',
+        fourHalf: '/web_and_ios/small/4-5.png',
+        five: '/web_and_ios/small/5.png',
+    }
+}
+
+export const convertKm = (distance) => {
+    return (distance / 1000).toFixed(2);
+}
+
+export const ratingImage = (rating) => {
+    const { ratingImages } = images;
+    switch (rating) {
+        case 1:
+            return ratingImages.one;
+        case 1.5:
+            return ratingImages.oneHalf;
+        case 2:
+            return ratingImages.two;
+        case 2.5:
+            return ratingImages.twoHalf;
+        case 3:
+            return ratingImages.three;
+        case 3.5:
+            return ratingImages.threeHalf;
+        case 4:
+            return ratingImages.four;
+        case 4.5:
+            return ratingImages.fourHalf;
+        case 5:
+            return ratingImages.five;
+        default:
+            return ratingImages.cero;;
+    }
 }

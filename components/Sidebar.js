@@ -12,12 +12,6 @@ export const Sidebar = () => {
 
             <div>
                 <p className="text-white text-2xl font-black">Guru Hotel Challenge</p>
-                {/* <Image
-                    src="/logo-original.svg"
-                    alt="Picture of the author"
-                    width={500}
-                    height={150}
-                /> */}
             </div>
 
             <nav className="mt-5 list-none">
