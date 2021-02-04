@@ -73,7 +73,7 @@ export const preRequestDev = {
 }
 
 export const preRequest = {
-    url: 'https://api.yelp.com/v3/graphql',
+    url: 'https://thingproxy.freeboard.io/fetch/https://api.yelp.com/v3/graphql',
         method: 'post',
         headers: {
           Authorization: token,
