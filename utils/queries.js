@@ -11,6 +11,7 @@ export const searchQuery = (term, location) => {
                 distance
                 photos
                 display_phone
+                alias
                 location {
                     address1
                 }
@@ -38,14 +39,28 @@ export const business = (id) => {
             phone
             display_phone
             price
+            location{
+                address1
+            }
+            categories{
+                title
+            }
             hours {
-                hours_type
+                open{
+                    end
+                    start
+                    day
+                  }
             }
             is_closed
             reviews {
                 rating
                 text
                 time_created
+                user{
+                    name
+                    image_url
+                }
             }
         }
     }

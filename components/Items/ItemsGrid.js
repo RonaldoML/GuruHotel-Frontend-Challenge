@@ -5,7 +5,7 @@ import { Item } from './Item';
 export const ItemsGrid = () => {
     const {searchs, data} = useSelector(state => state.search);
     return (
-        <div className="justify-self-center w-screen p-10 animate__animated animate__fadeInLeft animate__faster">
+        <div className="justify-self-center w-screen pt-5 p-10 animate__animated animate__fadeInLeft animate__faster">
             <h1 className='text-xl mb-10 text-center'>Los mejores lugares para "<span className=" font-bold">{searchs.busqueda}...</span>"</h1>
             <div className="block md:grid grid-cols-2 gap-10 place-items-auto">
             {

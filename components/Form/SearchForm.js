@@ -1,17 +1,13 @@
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
-import { ask, eventSearch, noContent } from '../../redux/actions/search';
+import { ask, eventSearch, goBack, noContent } from '../../redux/actions/search';
 import { loading } from '../../redux/actions/search';
-import { Loading } from '../Utility/Loading';
-import { Banner } from '../Utility/Banner';
-import { NoContent } from '../../components/NoContent';
 
-export const Form = () => {
+export const SearchForm = () => {
 
   const dispatch = useDispatch();
 
-  const { data, load, content } = useSelector(state => state.search)
   const { busqueda, ubicacion } = useSelector(state => state.search.searchs);
 
   const formik = useFormik({
@@ -32,13 +28,12 @@ export const Form = () => {
       dispatch(loading(true));
       dispatch(noContent(false));
       dispatch(ask(false));
+      dispatch(goBack(true));
     },
   });
 
   return (
-    <div className={data.length > 0 ? "grid justify-items-center shadow-sm w-screen bg-gradient-to-r from-blue-400 to-green-500 pb-10" : "grid justify-items-center shadow-sm w-screen bg-gradient-to-r from-blue-400 to-green-500 h-screen"}>
 
-      <Banner />
       <div className="flex justify-center p-5">
         <div className="flex justify-center min-w-screen">
           <form onSubmit={formik.handleSubmit}>
@@ -68,23 +63,13 @@ export const Form = () => {
                 <input
                   type="submit"
                   value="buscar"
-                  className="w-full shadow bg-blue-900 rounded mb-1 sm:rounded-l-none hover:bg-indigo-900 p-2 py-2 px-3 text-white uppercase font-bold"
+                  className="w-full shadow bg-blue-900 rounded mb-1 sm:rounded-l-none hover:bg-indigo-900 p-2 py-2 px-3 text-white uppercase font-bold hover-outline-none cursor-pointer active:outline"
                 />
               </div>
             </div>
           </form>
         </div>
       </div>
-      <div className="h-30">
-        {
-          load &&
-          <Loading />
-        }
-        {
-          content &&
-          <NoContent type={1} />
-        }
-      </div>
-    </div>
+
   )
 }

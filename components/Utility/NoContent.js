@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { images, texts } from '../utils/utils';
+import { images, texts } from '../../utils/utils';
 
 
 
@@ -13,7 +13,6 @@ export const NoContent = ({ type }) => {
     return (
         <div className="flex flex-wrap content-center justify-center mb-10">
             <div className="space-y-6 justify-self-center p-5">
-                {/* <div className="flex flex-wrap content-center justify-center m-10"> */}
                 <div className="flex justify-center">
                     <img src={img} width={type === 1 ? 50 : 100} />
                 </div>

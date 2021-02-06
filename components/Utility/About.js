@@ -1,4 +1,5 @@
 import React from 'react'
+import { images } from '../../utils/utils'
 
 export const About = () => {
     return (
@@ -7,12 +8,12 @@ export const About = () => {
                 <div className="flex align-items justify-center mb-5">
                     <div className="self-center m-5">
                         <a href="https://github.com/RonaldoML" target="_blank" >
-                            <img src="/github.svg" width={30} />
+                            <img src={images.github} width={30} />
                         </a>
                     </div>
                     <div className="self-center m-5">
                         <a href="https://www.linkedin.com/in/ronaldo-monserrate" target="_blank">
-                            <img src="/linkedin.svg" width={30} />
+                            <img src={images.linkedin} width={30} />
                         </a>
                     </div>
                 </div>

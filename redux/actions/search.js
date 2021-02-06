@@ -74,9 +74,10 @@ export const fetchBusiness = (id) => {
       dispatch(searchBusiness(detail));
 
 
+      dispatch(goBack(false));
 
     } catch (error) {
-
+      console.log(error)
     }
   }
 }
@@ -98,6 +99,11 @@ const searchBusiness = (business) => ({
 
 export const loading = (value) => ({
   type: types.loading,
+  payload: value
+})
+
+export const goBack = (value) => ({
+  type: types.back,
   payload: value
 })
 

@@ -3,28 +3,30 @@ export const texts = {
     searchSomething: 'Por favor!\n Ingresa un término y una ciudad para buscar'
 }
 
+
 export const images = {
-    linkedin: '/linkedin.svg',
-    github: '/github.svg',
-    viewed: '/viewed.png',
-    noImage: '/yelp.png',
-    logo: '/logo-original.svg',
-    noContent: '/man-questioning.svg',
-    loadingGif: '/loading.gif',
-    loadingSVG: '/loading.svg',
-    flecha: '/flecha.svg',
-    mapsIcon: '/mapIcon.svg',
+    linkedin: '/assets/iconos/linkedin.svg',
+    github: '/assets/iconos/github.svg',
+    viewed: '/assets/iconos/viewed.png',
+    noImage: '/assets/yelp.png',
+    logo: '/assets/iconos/logo-original.svg',
+    noContent: '/assets/iconos/man-questioning.svg',
+    loadingGif: '/assets/iconos/loading.gif',
+    loadingSVG: '/assets/iconos/loading.svg',
+    flecha: '/assets/iconos/flecha.svg',
+    mapsIcon: '/assets/iconos/mapIcon.svg',
+    call: '/assets/iconos/call.svg',
     ratingImages: {
-        cero: '/web_and_ios/small/2.png',
-        one: '/web_and_ios/small/1.png',
-        oneHalf: '/web_and_ios/small/1-5.png',
-        two: '/web_and_ios/small/2.png',
-        twoHalf: '/web_and_ios/small/2-5.png',
-        three: '/web_and_ios/small/3.png',
-        threeHalf: '/web_and_ios/small/3-5.png',
-        four: '/web_and_ios/small/4.png',
-        fourHalf: '/web_and_ios/small/4-5.png',
-        five: '/web_and_ios/small/5.png',
+        cero: '/assets/web_and_ios/small/2.png',
+        one: '/assets/web_and_ios/small/1.png',
+        oneHalf: '/assets/web_and_ios/small/1-5.png',
+        two: '/assets/web_and_ios/small/2.png',
+        twoHalf: '/assets/web_and_ios/small/2-5.png',
+        three: '/assets/web_and_ios/small/3.png',
+        threeHalf: '/assets/web_and_ios/small/3-5.png',
+        four: '/assets/web_and_ios/small/4.png',
+        fourHalf: '/assets/web_and_ios/small/4-5.png',
+        five: '/assets/web_and_ios/small/5.png',
     }
 }
 
@@ -58,10 +60,37 @@ export const ratingImage = (rating) => {
     }
 }
 
+export const convertSchedule = ( schedule ) => {
+    if(!schedule){
+        return;
+    }
+    let dias = [...horario()];
+    for (const d of dias) {
+        for( const s of schedule[0].open){
+            if(d.day === s.day){
+                d.horario.push({end: s.end, start: s.start})
+            }
+        }
+    }
+    return dias;
+ 
+}
+
+const horario = () => {
+    return days.map( (d, index) =>  ({name: d, day: index, horario: []}));
+}
+const days = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
+
+export const convertTime = ( time ) => {
+
+    const timeArray = time.split('');
+
+    return `${timeArray[0]}${timeArray[1]}:${timeArray[2]}${timeArray[3]}`
+}
 
 const token = 'Bearer eP-wUV_UqCRe7wlUlnLVEshEY6N0w_LjAmuyNXfFTdLuzq7_dzzt0c5CzFzZAruzCW-dYxD4715L13UJyHR7YK0BvtFmfW0sKv9A_YXW9AXddwtXkcxkOO5IkkMWYHYx';
 
-export const preRequestDev = {
+export const preRequest = {
     url: 'https://thingproxy.freeboard.io/fetch/https://api.yelp.com/v3/graphql',
         method: 'post',
         headers: {
@@ -72,7 +101,7 @@ export const preRequestDev = {
         }
 }
 
-export const preRequest = {
+export const preRequestDev = {
     url: 'https://api.yelp.com/v3/graphql',
         method: 'post',
         headers: {

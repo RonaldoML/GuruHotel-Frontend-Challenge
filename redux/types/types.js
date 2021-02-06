@@ -8,6 +8,8 @@ export const types = {
 
     loading: '[event] loading',
 
+    back: '[event] back',
+
     noContent: '[content] noContent',
 
     askTerms: '[content] ask',
