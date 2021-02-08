@@ -1,4 +1,3 @@
-import { visited } from "../actions/search";
 import { types } from "../types/types";
 
 

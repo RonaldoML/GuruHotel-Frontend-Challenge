@@ -1,10 +1,8 @@
-import React from 'react'
-import { useSelector } from 'react-redux';
+import React from 'react';
 import { MapContainer } from '../Map';
 import { Hour } from '../Hour';
 import { convertSchedule, images, ratingImage } from '../../../utils/utils';
 import { ReviewsGrid } from './ReviewsGrid';
-// import { convertSchedule, images, ratingImage } from '../../../../../utils/utils';
 
 export const Detail = ({ business }) => {
 

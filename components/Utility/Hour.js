@@ -10,12 +10,13 @@ export const Hour = ({ schedule }) => {
     return (
         <div className={currentDay == name.toLowerCase() ? "flex font-bold mb-4 text-10 w-full" : "flex mb-4 text-10 w-full"}>
             <div className="mr-2 w-14">{name}</div>
-            <div className="">
+            <div>
                 {
-                    horario.length !== 0 ? horario.map((h, index) => (<div key={index}>{convertTime(h.start)} - { convertTime(h.end)}</div>)) : <div className="text-red-500">CERRADO</div>
+                    horario.length !== 0 
+                    ? horario.map((h, index) => (<div key={index}>{convertTime(h.start)} - { convertTime(h.end)}</div>)) 
+                    : <div className="text-red-500">CERRADO</div>
                 }
             </div>
-
         </div>
     )
 }

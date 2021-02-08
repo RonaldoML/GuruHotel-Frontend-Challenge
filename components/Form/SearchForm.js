@@ -17,13 +17,9 @@ export const SearchForm = () => {
     },
     validationSchema: Yup.object({
       busqueda: Yup.string(),
-      // .min(1, 'Debe ingresar una entrada para buscar')
-      // .required('Debe ingresar una entrada para buscar'),
       ubicacion: Yup.string()
-      // .min(1, 'Debe ingresar una ubicación para buscar')
-      // .required('Debe ingresar una ubicación para buscar')
     }),
-    onSubmit: async (s, { resetForm }) => {
+    onSubmit: async (s) => {
       let { busqueda: b, ubicacion: u } = s;
       dispatch(eventSearch({ busqueda: b === "" ? "Hamburguesa" : b, ubicacion: u === "" ? "Guayaquil" : u }));
       dispatch(loading(true));

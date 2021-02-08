@@ -100,12 +100,3 @@ export const preRequest = {
           'Accept-Language': 'en-US',
         }
 }
-
-export const preRequestDev = {
-    url: 'https://api.yelp.com/v3/graphql',
-        method: 'post',
-        headers: {
-          Authorization: token,
-          'Content-Type': 'application/json',
-        }
-}

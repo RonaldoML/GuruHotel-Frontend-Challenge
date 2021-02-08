@@ -1,18 +1,17 @@
-import React from 'react'
-import Router from 'next/router'
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchBusiness, goBack, select, visit } from '../../redux/actions/search';
-import { convertKm, images, ratingImage } from '../../utils/utils';
+import { fetchBusiness, select, visit } from '../../redux/actions/search';
+import { images, ratingImage } from '../../utils/utils';
 
 
 export const Item = ({ empresa }) => {
-    const { id, name, rating, display_phone, review_count, location, distance } = empresa;
+    const { id, name, rating, display_phone, review_count, location } = empresa;
 
     let { photos } = empresa;
 
     const image_url = photos.length > 0 ? (photos[0] === 'https://s3-media3.fl.yelpcdn.com/bphoto/None/o.jpg' ? images.noImage : photos[0]) : images.noImage;
 
-    const { visited } = useSelector(state => state.search)
+    const { visited } = useSelector(state => state.search);
 
     const dispatch = useDispatch();
 
@@ -22,8 +21,7 @@ export const Item = ({ empresa }) => {
             dispatch(visit(id));
         }
         dispatch(select(id));
-        dispatch(fetchBusiness(id))
-        // Router.push('/nosotros')
+        dispatch(fetchBusiness(id));
 
     }
 
@@ -53,8 +51,6 @@ export const Item = ({ empresa }) => {
                     <div className="flex text-gray-600 mb-1 " title="maps" >
                         <img src={images.mapsIcon} alt="visto" className="h-5 ml-0 m-1 cursor-pointer" onClick={handleMaps} />
                         <div className="block xl:flex">
-                            {/* <span className="text-gray-700 font-bold mt-1 cursor-pointer" onClick={handleMaps}>{convertKm(distance)} Km
-                                </span> */}
                             <div className="mt-1 cursor-pointer" onClick={handleMaps}>
                                 <span className="text-gray-700 mt-1 md:ml-1"> {location.address1}</span>
                             </div>

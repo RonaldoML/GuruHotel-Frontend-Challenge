@@ -3,7 +3,9 @@ import { useSelector } from 'react-redux'
 import { Item } from './Item';
 
 export const ItemsGrid = () => {
+
     const {searchs, data} = useSelector(state => state.search);
+
     return (
         <div className="justify-self-center w-screen pt-10 p-10 animate__animated animate__fadeInLeft animate__faster">
             <h1 
@@ -23,7 +25,6 @@ export const ItemsGrid = () => {
                 ))
             }
             </div>
-
         </div>
     )
 }

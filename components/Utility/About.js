@@ -1,5 +1,5 @@
-import React from 'react'
-import { images } from '../../utils/utils'
+import React from 'react';
+import { images } from '../../utils/utils';
 
 export const About = () => {
     return (

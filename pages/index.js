@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Layout } from '../components/Layout';
-import { goBack, visit } from '../redux/actions/search';
 import { ItemsGrid } from '../components/Items/ItemsGrid';
 import { useEffect } from 'react';
 import { MapContainer } from '../components/Utility/Map';
@@ -10,15 +9,13 @@ const Index = () => {
 
   const dispatch = useDispatch();
 
-  const { data, load, content, visited, selected, back, business } = useSelector(state => state.search);
+  const { data, visited, back } = useSelector(state => state.search);
 
   useEffect(() => {
     const v = JSON.parse(localStorage.getItem("visited"));
     if (v && visited.length === 0) {
       v.map(a => dispatch(visit(a)));
     }
-
-
   }, [])
 
 

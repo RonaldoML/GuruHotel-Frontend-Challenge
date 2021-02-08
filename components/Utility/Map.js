@@ -48,7 +48,6 @@ export const MapContainer = ({ coordinates, maxHeight }) => {
                     mapContainerStyle={mapStyles}
                     zoom={11}
                     center={defaultCenter}>
-
                     {
                         coordinates
                             ?
@@ -67,7 +66,6 @@ export const MapContainer = ({ coordinates, maxHeight }) => {
                             })
                     }
                 </GoogleMap>
-
             </LoadScript>
         </div>
     )
