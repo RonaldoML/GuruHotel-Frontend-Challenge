@@ -2,13 +2,14 @@ import React from 'react';
 import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api';
 import { useSelector } from 'react-redux';
 
-export const MapContainer = ({ coordinates }) => {
+export const MapContainer = ({ coordinates, maxHeight }) => {
 
     const { data } = useSelector(state => state.search);
+
     const { name } = useSelector(state => state.search.business);
 
     const mapStyles = {
-        height: "40vh",
+        height: `${maxHeight}vh`,
         width: "auto",
         border: "1px solid gray",
         borderRadius: "5px",

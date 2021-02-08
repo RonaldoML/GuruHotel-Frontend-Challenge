@@ -10,8 +10,7 @@ export const Header = () => {
     const { data, load, content } = useSelector(state => state.search)
 
     return (
-        <div className={data.length > 0 ? "grid justify-items-center shadow-sm w-screen bg-gradient-to-r from-blue-400 to-green-500 pb-10" : "grid justify-items-center shadow-sm w-screen bg-gradient-to-r from-blue-400 to-green-500 h-screen"}>
-
+        <div className={data.length > 0 ? "grid justify-items-center shadow-sm w-screen bg-blue-400 pb-5" : "grid justify-items-center shadow-sm w-screen bg-blue-400 h-screen"}>
             <Banner />
             <SearchForm/>
             <div className="h-30">

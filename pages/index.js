@@ -34,7 +34,9 @@ const Index = () => {
             {
               back &&
               <div className="bg-indigo-100 p-10">
-                <MapContainer />
+                <MapContainer 
+                  maxHeight={70}
+                />
               </div>
             }
           </div>
