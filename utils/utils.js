@@ -16,6 +16,7 @@ export const images = {
     flecha: '/assets/iconos/flecha.svg',
     mapsIcon: '/assets/iconos/mapIcon.svg',
     call: '/assets/iconos/call.svg',
+    user: '/assets/iconos/man-user.svg',
     ratingImages: {
         cero: '/assets/web_and_ios/small/2.png',
         one: '/assets/web_and_ios/small/1.png',

@@ -40,7 +40,7 @@ export const MapContainer = ({ coordinates, maxHeight }) => {
         <div className="w-full rounded-sm animate__animated animate__fadeInRight animate__faster">
             {
                 !coordinates &&
-                <h1 className='text-xl font-bold text-center mb-7'>Mira su ubicación en el mapa</h1>
+                <h1 className='text-xl font-bold text-center mb-5'>Mira su ubicación en el mapa</h1>
             }
             <LoadScript
                 googleMapsApiKey='AIzaSyCVx558Ww9CU0esMgM_3I_mS4p2zmx3SL8'>

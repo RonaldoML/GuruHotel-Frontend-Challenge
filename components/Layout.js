@@ -24,7 +24,7 @@ export const Layout = ({ children }) => {
                     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
                 />
             </Head>
-            <div className="md:flex sm:flex min-h-screen">
+            <div className="md:flex sm:flex min-h-screen font-sans">
                 <div className="min-h-screen">
                     <Header />
                     {children}

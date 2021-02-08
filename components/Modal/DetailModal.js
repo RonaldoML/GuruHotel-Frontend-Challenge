@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { goBack } from '../../redux/actions/search';
 import { Detail } from '../Utility/Detail/Detail';
 
-export const DetailModal = ({ children }) => {
+export const DetailModal = () => {
     const { back, business } = useSelector(state => state.search);
     const dispatch = useDispatch();
 

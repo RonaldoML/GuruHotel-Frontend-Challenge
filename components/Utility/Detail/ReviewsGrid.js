@@ -9,9 +9,8 @@ export const ReviewsGrid = () => {
     const { reviews } = business;
 
     return (
-        <div className="rounded-b bg-blue-50">
+        <div className="rounded-b bg-gray-50 -mx-3 pb-2">
             {
-                reviews.length > 0 &&
                 reviews.map(( review, index) => (
                     <Review
                         key={ index }

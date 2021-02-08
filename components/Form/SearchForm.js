@@ -58,7 +58,7 @@ export const SearchForm = () => {
               <input
                 type="submit"
                 value="buscar"
-                className="w-full shadow bg-blue-900 rounded-2xl mb-1 sm:rounded-l-none hover:bg-indigo-900 p-2 py-2 px-3 text-white uppercase font-bold hover:outline-none focus:outline-none focus:bg-yellow-500 cursor-pointer"
+                className="w-full shadow bg-indigo-900 rounded-2xl mb-1 sm:rounded-l-none hover:bg-blue-700 p-2 py-2 px-3 text-white uppercase font-bold hover:outline-none focus:outline-none focus:bg-yellow-500 cursor-pointer"
               />
             </div>
           </div>

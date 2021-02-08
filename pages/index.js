@@ -4,6 +4,7 @@ import { ItemsGrid } from '../components/Items/ItemsGrid';
 import { useEffect } from 'react';
 import { MapContainer } from '../components/Utility/Map';
 import { DetailModal } from '../components/Modal/DetailModal';
+import { visit } from '../redux/actions/search';
 
 const Index = () => {
 
@@ -30,7 +31,7 @@ const Index = () => {
               </div>
             {
               back &&
-              <div className="bg-indigo-100 p-10">
+              <div className="bg-gray-100 p-10">
                 <MapContainer 
                   maxHeight={70}
                 />
@@ -39,8 +40,8 @@ const Index = () => {
           </div>
         }
         {
-           !back && 
-             <DetailModal></DetailModal>
+           !back && data.length !== 0 &&
+             <DetailModal />
         }
       </div>
     </Layout>

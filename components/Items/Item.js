@@ -38,7 +38,7 @@ export const Item = ({ empresa }) => {
                 </div>
                 <div className="sm:w-6/12 xl:w-5/12 h-6/12 sm:pl-5">
                     <div className="flex mt-2">
-                        <p className="truncate font-bold text-4xl text-yellow-500 mb-5">{name}</p>
+                        <p className="truncate font-bold text-4xl text-yellow-500 mb-5 hover:underline cursor-default">{name}</p>
                         {
                             visited.some(v => v === id) &&
                             <img src={images.viewed} alt="visto" title="visto" className="h-5 mt-3 mx-3" />
