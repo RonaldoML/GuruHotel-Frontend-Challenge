@@ -1,5 +1,6 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app), powered with [Tailwindcss](https://tailwindcss.com/) and [Redux](https://redux.js.org/).
-Web application that allows you to search for businesses registered in [Yelp](https://www.yelp.com/) by making requests to [Yelp GraphQl](https://www.yelp.com/developers/graphql/guides/intro)  Developers Beta
+
+Web application that allows you to search for businesses registered in [Yelp](https://www.yelp.com/) by making requests to [Yelp GraphQl](https://www.yelp.com/developers/graphql/guides/intro)  Developers Beta.
 
 ## Getting Started
 
